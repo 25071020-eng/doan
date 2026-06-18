@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinh Hoa Ẩm Thực Việt Nam</title>
+    <style>
+        /* Reset CSS cơ bản */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcfbf7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d9381e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #d9381e;
+        }
+
+        /* Hero Section (Banner chính) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #d9381e;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b22813;
+            transform: translateY(-3px);
+        }
+
+        /* Giới thiệu chung */
+        .about {
+            max-width: 800px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #d9381e;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .about h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #d9381e;
+            margin: 10px auto 0;
+        }
+
+        /* Danh sách món ăn độc đáo */
+        .menu-section {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .menu-title {
+            text-align: center;
+            font-size: 2.3rem;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .food-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .food-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .food-info {
+            padding: 20px;
+        }
+
+        .food-info h3 {
+            font-size: 1.4rem;
+            color: #d9381e;
+            margin-bottom: 10px;
+        }
+
+        .food-info p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #555;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Ẩn menu trên mobile để đơn giản hóa */
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh Menu điều hướng -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Ẩm Thực Việt</div>
+            <ul class="nav-links">
+                <li><a href="#">Trang Chủ</a></li>
+                <li><a href="#about">Giới Thiệu</a></li>
+                <li><a href="#mon-an">Món Ăn Nổi Bật</a></li>
+                <li><a href="#lien-he">Liên Hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Khu vực Banner chính -->
+    <section class="hero">
+        <h1>Hương Vị Đậm Đà Bản Sắc Việt</h1>
+        <p>Khám phá hành trình văn hóa qua những món ăn đường phố mộc mạc cho đến những mâm cơm gia đình ấm cúng.</p>
+        <a href="#mon-an" class="btn">Khám Phá Ngay</a>
+    </section>
+
+    <!-- Khu vực Giới thiệu -->
+    <section class="about" id="about">
+        <h2>Về Ẩm Thực Việt Nam</h2>
+        <p style="margin-top: 20px; font-size: 1.1rem; color: #555;">
+            Ẩm thực Việt Nam là sự kết hợp hài hòa giữa 5 vị cơ bản: mặn, ngọt, chua, cay và béo, đại diện cho ngũ hành. Sự cân bằng, sử dụng nhiều rau xanh, thảo mộc tươi và nước mắm truyền thống đã tạo nên nét đặc trưng riêng biệt, không chỉ thơm ngon mà còn rất tốt cho sức khỏe được bạn bè quốc tế vô cùng yêu thích.
+        </p>
+    </section>
+
+    <!-- Khu vực các Món ăn nổi bật -->
+    <section class="menu-section" id="mon-an">
+        <h2 class="menu-title">Món Ăn Không Thể Bỏ Qua</h2>
+        
+        <div class="grid-container">
+            <!-- Món 1: Phở -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=500&q=80" alt="Phở Bò" class="food-img">
+                <div class="food-info">
+                    <h3>Phở Bò</h3>
+                    <p>Món ăn "quốc hồn quốc túy" của Việt Nam. Nước dùng thanh ngọt hầm từ xương bò hòa quyện cùng bánh phở mềm và các loại rau thơm.</p>
+                    <span class="tag">Món Nước</span>
+                </div>
+            </div>
+
+            <!-- Món 2: Bánh Mì -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1600454021841-69698d2b7ac3?auto=format&fit=crop&w=500&q=80" alt="Bánh Mì" class="food-img">
+                <div class="food-info">
+                    <h3>Bánh Mì Đường Phố</h3>
+                    <p>Sự kết hợp hoàn hảo giữa lớp vỏ giòn rụm bên ngoài và nhân patê, chả lụa, dưa chua, ngò rí đậm đà bên trong. Vừa tiện lợi vừa bùng nổ hương vị.</p>
+                    <span class="tag">Ăn Nhẹ / Đường Phố</span>
+                </div>
+            </div>
+
+            <!-- Món 3: Bún Chả -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?auto=format&fit=crop&w=500&q=80" alt="Bún Chả" class="food-img">
+                <div class="food-info">
+                    <h3>Bún Chả Hà Nội</h3>
+                    <p>Món ăn nức tiếng xứ Kinh Kỳ với thịt ba chỉ và chả băm nướng cháy cạnh trên than hồng, thả vào bát nước chấm chua ngọt ăn kèm bún tươi.</p>
+                    <span class="tag">Món Nướng</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chân trang -->
+    <footer id="lien-he">
+        <p>&copy; 2026 Tinh Hoa Ẩm Thực Việt Nam. Thiết kế bởi Gemini.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Hình ảnh mang tính chất minh họa từ Unsplash</p>
+    </footer>
+
+</body>
+</html>
